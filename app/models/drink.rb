@@ -29,7 +29,7 @@ class Drink < ApplicationRecord
 
   def self.searchByIngredient(ing)
     response = HTTParty.get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=#{ing}").to_s
-    data = response == '' ? {} : response
+    data = response == '' ? {} : JSON.parse(response)
     data['drinks'].each do |drink|
       drinkResponse = HTTParty.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{drink['idDrink']}")
       drinkData = JSON.parse(drinkResponse.to_s)
