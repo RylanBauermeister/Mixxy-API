@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: mixxy-backend_production
-  username: mixxy-backend
+  username: tgzeqsvconfpof
   password: <%= ENV['MIXXY-BACKEND_DATABASE_PASSWORD'] %>
